@@ -1,1 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lost and Found Management</title>
 
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f1f5f9;
+            color: #1e293b;
+            margin: 0;
+        }
+
+        header {
+            background: #172554;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 25px auto;
+            padding: 20px;
+        }
+
+        section, .card {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+        }
+
+        input, select {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0 18px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background: #2563eb;
+            color: white;
+            padding: 12px 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+        h2 {
+            color: #172554;
+        }
+
+        .card {
+            border-left: 5px solid #2563eb;
+        }
+
+        @media (max-width: 600px) {
+            main {
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Lost and Found Management</h1>
+        <p>Report and view lost or found items</p>
+    </header>
+
+    <main>
+        <section>
+            <h2>Report an Item</h2>
+
+            <form method="POST" action="/">
+                <label for="name">Item Name</label>
+                <input
+                    id="name"
+                    name="name"
+                    type="text"
+                    placeholder="Enter item name"
+                    required
+                >
+
+                <label for="type">Item Type</label>
+                <select id="type" name="type">
+                    <option value="Lost">Lost</option>
+                    <option value="Found">Found</option>
+                </select>
+
+                <label for="location">Location</label>
+                <input
+                    id="location"
+                    name="location"
+                    type="text"
+                    placeholder="Where was it lost or found?"
+                    required
+                >
+
+                <button type="submit">Submit Report</button>
+            </form>
+        </section>
+
+        <section>
+            <h2>Lost and Found Items</h2>
+            {{ITEM_CARDS}}
+        </section>
+    </main>
+</body>
+</html>
